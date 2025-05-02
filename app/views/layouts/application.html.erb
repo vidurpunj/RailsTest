@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for(:title) || "User Projects" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <%= stylesheet_link_tag :application, "data-turbo-track": "reload" %>
+  <%= javascript_include_tag :application, "data-turbo-track": "reload" %>
+  <style>
+      .sidebar {
+          background-color: #f8f9fa;
+          padding: 15px;
+      }
+
+      .nav-tabs .nav-link {
+          color: #495057;
+      }
+
+      .nav-tabs .nav-link.active {
+          background-color: #007bff;
+          color: white;
+      }
+  </style>
+</head>
+
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar">
+        <ul class="nav nav-tabs flex-column">
+          <li class="nav-item">
+            <%= link_to 'Users', users_path, class: 'nav-link', id: 'users-link'  %>
+          </li>
+          <li class="nav-item">
+           <%= link_to 'Projects', projects_path, class: 'nav-link', id: 'projects-link'%>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="tab-content">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+      function onPageLoad(){
+          const currentUrl = window.location.href;
+          const usersLink = document.getElementById('users-link');
+          const projectsLink = document.getElementById('projects-link');
+
+          if (currentUrl.includes('users')) {
+              usersLink.classList.add('active');
+          } else if (currentUrl.includes('projects')) {
+              projectsLink.classList.add('active');
+          }
+
+      }
+      onPageLoad();
+  });
+</script>
+</body>
+</html>
