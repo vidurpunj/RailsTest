@@ -1,24 +1,7 @@
-# README
+## Testing Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### System Tests
+These tests evaluate the entire application as a whole to ensure it meets the specified requirements and works correctly in a complete, integrated environment.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Integration Tests
+These tests focus on the interactions between different modules or components within the application to ensure they work together seamlessly.

@@ -4,13 +4,25 @@
 
 <h1>Projects</h1>
 
-<div id="projects">
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <td>Title</td>
+    <td>Description</td>
+    <td>User</td>
+  </tr>
+  </thead>
+  <tbody>
   <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
+    <tr>
+      <td><%= project.title %></td>
+      <td><%= project.description %></td>
+      <td><%= project.user.name %></td>
+      <td><%= link_to "Show", project %></td>
+    </tr>
   <% end %>
+  </tbody>
+</table>
 </div>
 
 <%= link_to "New project", new_project_path %>
