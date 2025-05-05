@@ -68,3 +68,7 @@ gem 'jquery-rails'
 
 gem 'bullet'
 gem 'devise'
+
+group :test do
+  gem 'rspec-rails'
+end

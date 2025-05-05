@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: Vidur@1234
+      MYSQL_DATABASE: user_projects_development
+      MYSQL_USER: vidur
+      MYSQL_PASSWORD: Vidur@1234
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: mysql2://vidur:Vidur@1234@db/user_projects_development
