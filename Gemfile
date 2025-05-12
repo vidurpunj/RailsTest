@@ -71,4 +71,8 @@ gem 'devise'
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'diff-lcs'
 end
+
+gem 'stripe'
